@@ -15,7 +15,32 @@ QtTaskTesting::QtTaskTesting(QWidget *parent)
 
     connect(ui.btnLock2, &QPushButton::clicked, this, &QtTaskTesting::toggleLock);
     connect(ui.btnLock3, &QPushButton::clicked, this, &QtTaskTesting::toggleLock);
+    connect(ui.btnLockUnlock, &QPushButton::clicked, this, &QtTaskTesting::lockunlock);
+    connect(ui.btnLockUnlock, &QPushButton::clicked, this, &QtTaskTesting::setSlideValue);
+    //connect(ui.btnSetValue, SIGNAL(clicked()), this, SLOT(setSlideValue()));
 
+    connect(ui.btnLock2, &QPushButton::clicked, this, &QtTaskTesting::toggleLock);
+    connect(ui.btnLock3, &QPushButton::clicked, this, &QtTaskTesting::toggleLock); connect(ui.btnLockUnlock, &QPushButton::clicked, this, &QtTaskTesting::lockunlock);
+    connect(ui.btnLockUnlock, &QPushButton::clicked, this, &QtTaskTesting::setSlideValue);
+    //connect(ui.btnSetValue, SIGNAL(clicked()), this, SLOT(setSlideValue()));
+
+    connect(ui.btnLock2, &QPushButton::clicked, this, &QtTaskTesting::toggleLock);
+    connect(ui.btnLock3, &QPushButton::clicked, this, &QtTaskTesting::toggleLock); connect(ui.btnLockUnlock, &QPushButton::clicked, this, &QtTaskTesting::lockunlock);
+    connect(ui.btnLockUnlock, &QPushButton::clicked, this, &QtTaskTesting::setSlideValue);
+    //connect(ui.btnSetValue, SIGNAL(clicked()), this, SLOT(setSlideValue()));
+
+    connect(ui.btnLock2, &QPushButton::clicked, this, &QtTaskTesting::toggleLock);
+    connect(ui.btnLock3, &QPushButton::clicked, this, &QtTaskTesting::toggleLock); connect(ui.btnLockUnlock, &QPushButton::clicked, this, &QtTaskTesting::lockunlock);
+    connect(ui.btnLockUnlock, &QPushButton::clicked, this, &QtTaskTesting::setSlideValue);
+    //connect(ui.btnSetValue, SIGNAL(clicked()), this, SLOT(setSlideValue()));
+
+    connect(ui.btnLock2, &QPushButton::clicked, this, &QtTaskTesting::toggleLock);
+    connect(ui.btnLock3, &QPushButton::clicked, this, &QtTaskTesting::toggleLock); connect(ui.btnLockUnlock, &QPushButton::clicked, this, &QtTaskTesting::lockunlock);
+    connect(ui.btnLockUnlock, &QPushButton::clicked, this, &QtTaskTesting::setSlideValue);
+    //connect(ui.btnSetValue, SIGNAL(clicked()), this, SLOT(setSlideValue()));
+
+    connect(ui.btnLock2, &QPushButton::clicked, this, &QtTaskTesting::toggleLock);
+    connect(ui.btnLock3, &QPushButton::clicked, this, &QtTaskTesting::toggleLock);
 }
 
 void QtTaskTesting::toggleLock() {
@@ -26,6 +51,16 @@ void QtTaskTesting::toggleLock() {
 void QtTaskTesting::lockunlock() {
     if (ui.btnLockUnlock->isChecked())
     {
+        //lock buttons
+        ui.verticalSlider->setEnabled(false);
+        ui.numValueBox->setEnabled(false);
+        //set button to "Unlock"
+        ui.btnLockUnlock->setText("Unlock");
+        //lock buttons
+        ui.verticalSlider->setEnabled(false);
+        ui.numValueBox->setEnabled(false);
+        //set button to "Unlock"
+        ui.btnLockUnlock->setText("Unlock");
         //lock buttons
         ui.verticalSlider->setEnabled(false);
         ui.numValueBox->setEnabled(false);
