@@ -10,7 +10,7 @@ QtTaskTesting::QtTaskTesting(QWidget *parent)
     ui.setupUi(this);
 
     connect(ui.btnLockUnlock, &QPushButton::clicked, this, &QtTaskTesting::lockunlock);
-    connect(ui.btnLockUnlock, SIGNAL(clicked()), this, SLOT(setSlideValue()));
+    connect(ui.btnLockUnlock, &QPushButton::clicked, this, &QtTaskTesting::setSlideValue);
     //connect(ui.btnSetValue, SIGNAL(clicked()), this, SLOT(setSlideValue()));
 
     connect(ui.btnLock2, &QPushButton::clicked, this, &QtTaskTesting::toggleLock);
