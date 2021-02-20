@@ -1,6 +1,6 @@
 #include "qttasktesting.h"
 
-//Github merging
+//Github merging test
 
 QtTaskTesting::QtTaskTesting(QWidget *parent)
     : QMainWindow(parent)
