@@ -2,6 +2,7 @@
 
 //Github merging test
 //More github testing
+//This will be the branch to merge into master.
 
 QtTaskTesting::QtTaskTesting(QWidget *parent)
     : QMainWindow(parent)
