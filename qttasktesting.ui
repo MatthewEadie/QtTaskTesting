@@ -74,8 +74,8 @@
    <widget class="QPushButton" name="btnSetValue">
     <property name="geometry">
      <rect>
-      <x>450</x>
-      <y>250</y>
+      <x>520</x>
+      <y>270</y>
       <width>75</width>
       <height>23</height>
      </rect>
@@ -113,8 +113,8 @@
    <widget class="QComboBox" name="comboBox_colourMap">
     <property name="geometry">
      <rect>
-      <x>460</x>
-      <y>220</y>
+      <x>530</x>
+      <y>240</y>
       <width>46</width>
       <height>20</height>
      </rect>
@@ -175,6 +175,19 @@
     </property>
     <property name="text">
      <string>Hue</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_SecondWindow">
+    <property name="geometry">
+     <rect>
+      <x>240</x>
+      <y>90</y>
+      <width>75</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Other Window</string>
     </property>
    </widget>
   </widget>

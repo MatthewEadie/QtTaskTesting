@@ -1,4 +1,5 @@
 #include "qttasktesting.h"
+#include "SecondWindow.h"
 
 //Github merging test
 //More github testing
@@ -15,6 +16,8 @@ QtTaskTesting::QtTaskTesting(QWidget *parent)
 
     connect(ui.verticalSlider_Hue, &QSlider::valueChanged, this, &QtTaskTesting::updateColourMap);
     connect(ui.spinBox_Value, QOverload<int>::of(&QSpinBox::valueChanged), this, &QtTaskTesting::updateColourMap);
+
+    connect(ui.pushButton_SecondWindow, &QPushButton::clicked, this, &QtTaskTesting::openSecondWindow);
 }
 
 void QtTaskTesting::updateColourMap(int hue) {
@@ -57,6 +60,12 @@ void QtTaskTesting::updateColourMap(int hue) {
 
     ui.spinBox_Value->setValue(hue);
     ui.verticalSlider_Hue->setValue(hue);
+}
+
+void QtTaskTesting::openSecondWindow() {
+    ui2.setupUi(this);
+
+    //ui.setupUi(this);
 }
 
 void QtTaskTesting::lockunlock() {

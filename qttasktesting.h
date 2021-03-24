@@ -6,6 +6,8 @@
 
 #include "ui_qttasktesting.h"
 
+#include "SecondWindow.h"
+
 #include "opencv2/core/core.hpp"
 #include "opencv2/highgui/highgui.hpp"
 #include "opencv2/imgproc/imgproc.hpp"
@@ -28,10 +30,13 @@ private slots:
     void lockunlock();
     void setSlideValue();
     void updateColourMap(int hue);
+    void openSecondWindow();
 
 private:
     QGraphicsItem* graphic;
 
     Ui::QtTaskTestingClass ui;
+
+    Ui::MainWindow ui2;
 
 };

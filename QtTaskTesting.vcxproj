@@ -104,14 +104,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="SecondWindow.cpp" />
     <QtRcc Include="qttasktesting.qrc" />
     <QtUic Include="qttasktesting.ui" />
     <QtMoc Include="qttasktesting.h" />
     <ClCompile Include="qttasktesting.cpp" />
     <ClCompile Include="main.cpp" />
+    <QtUic Include="SecondWindow.ui" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="asmOpenCV.h" />
+    <QtMoc Include="SecondWindow.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

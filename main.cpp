@@ -1,4 +1,5 @@
 #include "qttasktesting.h"
+#include "SecondWindow.h"
 #include <QtWidgets/QApplication>
 #include <QStyleFactory>
 
@@ -6,6 +7,7 @@ int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
     QtTaskTesting w;
+    SecondWindow s;
 
     qApp->setStyle(QStyleFactory::create("Fusion"));
     QPalette darkPalette;
