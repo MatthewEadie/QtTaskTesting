@@ -13,40 +13,49 @@ QtTaskTesting::QtTaskTesting(QWidget *parent)
     connect(ui.btnLockUnlock, &QPushButton::clicked, this, &QtTaskTesting::setSlideValue);
     //connect(ui.btnSetValue, SIGNAL(clicked()), this, SLOT(setSlideValue()));
 
-    connect(ui.btnLock2, &QPushButton::clicked, this, &QtTaskTesting::toggleLock);
-    connect(ui.btnLock3, &QPushButton::clicked, this, &QtTaskTesting::toggleLock);
-    connect(ui.btnLockUnlock, &QPushButton::clicked, this, &QtTaskTesting::lockunlock);
-    connect(ui.btnLockUnlock, &QPushButton::clicked, this, &QtTaskTesting::setSlideValue);
-    //connect(ui.btnSetValue, SIGNAL(clicked()), this, SLOT(setSlideValue()));
-
-    connect(ui.btnLock2, &QPushButton::clicked, this, &QtTaskTesting::toggleLock);
-    connect(ui.btnLock3, &QPushButton::clicked, this, &QtTaskTesting::toggleLock); connect(ui.btnLockUnlock, &QPushButton::clicked, this, &QtTaskTesting::lockunlock);
-    connect(ui.btnLockUnlock, &QPushButton::clicked, this, &QtTaskTesting::setSlideValue);
-    //connect(ui.btnSetValue, SIGNAL(clicked()), this, SLOT(setSlideValue()));
-
-    connect(ui.btnLock2, &QPushButton::clicked, this, &QtTaskTesting::toggleLock);
-    connect(ui.btnLock3, &QPushButton::clicked, this, &QtTaskTesting::toggleLock); connect(ui.btnLockUnlock, &QPushButton::clicked, this, &QtTaskTesting::lockunlock);
-    connect(ui.btnLockUnlock, &QPushButton::clicked, this, &QtTaskTesting::setSlideValue);
-    //connect(ui.btnSetValue, SIGNAL(clicked()), this, SLOT(setSlideValue()));
-
-    connect(ui.btnLock2, &QPushButton::clicked, this, &QtTaskTesting::toggleLock);
-    connect(ui.btnLock3, &QPushButton::clicked, this, &QtTaskTesting::toggleLock); connect(ui.btnLockUnlock, &QPushButton::clicked, this, &QtTaskTesting::lockunlock);
-    connect(ui.btnLockUnlock, &QPushButton::clicked, this, &QtTaskTesting::setSlideValue);
-    //connect(ui.btnSetValue, SIGNAL(clicked()), this, SLOT(setSlideValue()));
-
-    connect(ui.btnLock2, &QPushButton::clicked, this, &QtTaskTesting::toggleLock);
-    connect(ui.btnLock3, &QPushButton::clicked, this, &QtTaskTesting::toggleLock); connect(ui.btnLockUnlock, &QPushButton::clicked, this, &QtTaskTesting::lockunlock);
-    connect(ui.btnLockUnlock, &QPushButton::clicked, this, &QtTaskTesting::setSlideValue);
-    //connect(ui.btnSetValue, SIGNAL(clicked()), this, SLOT(setSlideValue()));
-
-    connect(ui.btnLock2, &QPushButton::clicked, this, &QtTaskTesting::toggleLock);
-    connect(ui.btnLock3, &QPushButton::clicked, this, &QtTaskTesting::toggleLock);
+    connect(ui.verticalSlider_Hue, &QSlider::valueChanged, this, &QtTaskTesting::updateColourMap);
 }
 
-void QtTaskTesting::toggleLock() {
+void QtTaskTesting::updateColourMap(int hue) {
 
+    /*int hue_Value = ui.verticalSlider_Hue->tickPosition();
+    int lightness_Value = ui.verticalSlider_Lightness->tickPosition();
+    int saturation_Value = ui.verticalSlider_Saturation->tickPosition();*/
+
+    int width = 50;
+
+    cv::Mat hls_map, BGRcolourmap;
+    std::vector<cv::Mat> HLSchannels;
+
+    cv::Mat H = cv::Mat(256, width, CV_8U);
+    cv::Mat L = cv::Mat(256, width, CV_8U);
+    cv::Mat S = cv::Mat(256, width, CV_8U);
+
+    for (int c = 0; c < width; c++)
+    {
+        for (int i = 0; i < 256; i++)
+        {
+            H.at<uchar>(i, c) = hue;
+            L.at<uchar>(i, c) = i;
+            S.at<uchar>(i, c) = 255;
+        }
+    }
+
+    HLSchannels.push_back(H);
+    HLSchannels.push_back(L);
+    HLSchannels.push_back(S);
+
+    cv::merge(HLSchannels, hls_map);
+    cv::cvtColor(hls_map, BGRcolourmap, cv::COLOR_HLS2BGR);
+
+    QGraphicsScene* scene = new QGraphicsScene;
+    graphic = scene->addPixmap(ASM::cvMatToQPixmap(BGRcolourmap));
+    graphic->setY(5);
+    ui.graphicsView->setScene(scene);
+    ui.graphicsView->show();
+
+    ui.numValueBox->setValue(hue);
 }
-
 
 void QtTaskTesting::lockunlock() {
     if (ui.btnLockUnlock->isChecked())
@@ -56,16 +65,7 @@ void QtTaskTesting::lockunlock() {
         ui.numValueBox->setEnabled(false);
         //set button to "Unlock"
         ui.btnLockUnlock->setText("Unlock");
-        //lock buttons
-        ui.verticalSlider->setEnabled(false);
-        ui.numValueBox->setEnabled(false);
-        //set button to "Unlock"
-        ui.btnLockUnlock->setText("Unlock");
-        //lock buttons
-        ui.verticalSlider->setEnabled(false);
-        ui.numValueBox->setEnabled(false);
-        //set button to "Unlock"
-        ui.btnLockUnlock->setText("Unlock");
+
     }
     else {
         //unlock buttons

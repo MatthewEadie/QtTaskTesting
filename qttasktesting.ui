@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>607</width>
-    <height>412</height>
+    <width>611</width>
+    <height>421</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,10 +17,10 @@
    <widget class="QPushButton" name="btnLockUnlock">
     <property name="geometry">
      <rect>
-      <x>490</x>
-      <y>20</y>
-      <width>93</width>
-      <height>28</height>
+      <x>523</x>
+      <y>9</y>
+      <width>75</width>
+      <height>23</height>
      </rect>
     </property>
     <property name="text">
@@ -33,49 +33,13 @@
      <bool>false</bool>
     </property>
    </widget>
-   <widget class="QPushButton" name="btnSetValue">
-    <property name="geometry">
-     <rect>
-      <x>190</x>
-      <y>110</y>
-      <width>93</width>
-      <height>28</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Set value</string>
-    </property>
-   </widget>
-   <widget class="QSlider" name="verticalSlider">
-    <property name="geometry">
-     <rect>
-      <x>140</x>
-      <y>80</y>
-      <width>22</width>
-      <height>231</height>
-     </rect>
-    </property>
-    <property name="orientation">
-     <enum>Qt::Vertical</enum>
-    </property>
-   </widget>
-   <widget class="QSpinBox" name="numValueBox">
-    <property name="geometry">
-     <rect>
-      <x>190</x>
-      <y>180</y>
-      <width>91</width>
-      <height>22</height>
-     </rect>
-    </property>
-   </widget>
    <widget class="QPushButton" name="btnLock2">
     <property name="geometry">
      <rect>
-      <x>420</x>
-      <y>200</y>
-      <width>93</width>
-      <height>28</height>
+      <x>523</x>
+      <y>38</y>
+      <width>75</width>
+      <height>23</height>
      </rect>
     </property>
     <property name="text">
@@ -91,10 +55,10 @@
    <widget class="QPushButton" name="btnLock3">
     <property name="geometry">
      <rect>
-      <x>420</x>
-      <y>250</y>
-      <width>93</width>
-      <height>28</height>
+      <x>523</x>
+      <y>67</y>
+      <width>75</width>
+      <height>23</height>
      </rect>
     </property>
     <property name="text">
@@ -107,14 +71,120 @@
      <bool>false</bool>
     </property>
    </widget>
+   <widget class="QPushButton" name="btnSetValue">
+    <property name="geometry">
+     <rect>
+      <x>450</x>
+      <y>250</y>
+      <width>75</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Set value</string>
+    </property>
+   </widget>
+   <widget class="QSpinBox" name="numValueBox">
+    <property name="geometry">
+     <rect>
+      <x>80</x>
+      <y>60</y>
+      <width>51</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="maximum">
+     <number>180</number>
+    </property>
+   </widget>
+   <widget class="QSlider" name="verticalSlider">
+    <property name="geometry">
+     <rect>
+      <x>495</x>
+      <y>96</y>
+      <width>22</width>
+      <height>84</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Vertical</enum>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="comboBox_colourMap">
+    <property name="geometry">
+     <rect>
+      <x>460</x>
+      <y>220</y>
+      <width>46</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <item>
+     <property name="text">
+      <string>RGB</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>HSV</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>LLS</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QGraphicsView" name="graphicsView">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>90</y>
+      <width>55</width>
+      <height>261</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QSlider" name="verticalSlider_Hue">
+    <property name="geometry">
+     <rect>
+      <x>90</x>
+      <y>90</y>
+      <width>22</width>
+      <height>241</height>
+     </rect>
+    </property>
+    <property name="minimum">
+     <number>1</number>
+    </property>
+    <property name="maximum">
+     <number>180</number>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Vertical</enum>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>90</x>
+      <y>340</y>
+      <width>21</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Hue</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>607</width>
-     <height>26</height>
+     <width>611</width>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
