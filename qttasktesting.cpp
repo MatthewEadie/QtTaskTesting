@@ -14,6 +14,7 @@ QtTaskTesting::QtTaskTesting(QWidget *parent)
     //connect(ui.btnSetValue, SIGNAL(clicked()), this, SLOT(setSlideValue()));
 
     connect(ui.verticalSlider_Hue, &QSlider::valueChanged, this, &QtTaskTesting::updateColourMap);
+    connect(ui.spinBox_Value, QOverload<int>::of(&QSpinBox::valueChanged), this, &QtTaskTesting::updateColourMap);
 }
 
 void QtTaskTesting::updateColourMap(int hue) {
@@ -54,7 +55,8 @@ void QtTaskTesting::updateColourMap(int hue) {
     ui.graphicsView->setScene(scene);
     ui.graphicsView->show();
 
-    ui.numValueBox->setValue(hue);
+    ui.spinBox_Value->setValue(hue);
+    ui.verticalSlider_Hue->setValue(hue);
 }
 
 void QtTaskTesting::lockunlock() {
@@ -62,7 +64,7 @@ void QtTaskTesting::lockunlock() {
     {
         //lock buttons
         ui.verticalSlider->setEnabled(false);
-        ui.numValueBox->setEnabled(false);
+        //ui.numValueBox->setEnabled(false);
         //set button to "Unlock"
         ui.btnLockUnlock->setText("Unlock");
 
@@ -70,13 +72,13 @@ void QtTaskTesting::lockunlock() {
     else {
         //unlock buttons
         ui.verticalSlider->setEnabled(true);
-        ui.numValueBox->setEnabled(true);
+        //ui.numValueBox->setEnabled(true);
         //set button to "Lock"
         ui.btnLockUnlock->setText("Lock");
     }
 }
 
 void QtTaskTesting::setSlideValue() {
-    int value = ui.numValueBox->value();
-    ui.verticalSlider->setValue(value);
+    //int value = ui.numValueBox->value();
+    //ui.verticalSlider->setValue(value);
 }
