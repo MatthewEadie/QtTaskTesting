@@ -18,6 +18,8 @@ QtTaskTesting::QtTaskTesting(QWidget *parent)
     connect(ui.spinBox_Value, QOverload<int>::of(&QSpinBox::valueChanged), this, &QtTaskTesting::updateColourMap);
 
     connect(ui.pushButton_SecondWindow, &QPushButton::clicked, this, &QtTaskTesting::openSecondWindow);
+
+
 }
 
 void QtTaskTesting::updateColourMap(int hue) {
@@ -49,11 +51,14 @@ void QtTaskTesting::updateColourMap(int hue) {
     HLSchannels.push_back(L);
     HLSchannels.push_back(S);
 
+    cv::Mat opencvColourmap;
+
     cv::merge(HLSchannels, hls_map);
-    cv::cvtColor(hls_map, BGRcolourmap, cv::COLOR_HLS2BGR);
+    cv::applyColorMap(hls_map, opencvColourmap, cv::COLORMAP_TURBO);
+    //cv::cvtColor(hls_map, BGRcolourmap, cv::COLOR_HLS2BGR);
 
     QGraphicsScene* scene = new QGraphicsScene;
-    graphic = scene->addPixmap(ASM::cvMatToQPixmap(BGRcolourmap));
+    graphic = scene->addPixmap(ASM::cvMatToQPixmap(opencvColourmap));
     graphic->setY(5);
     ui.graphicsView->setScene(scene);
     ui.graphicsView->show();
