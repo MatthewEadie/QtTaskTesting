@@ -19,7 +19,32 @@ QtTaskTesting::QtTaskTesting(QWidget *parent)
 
     connect(ui.pushButton_SecondWindow, &QPushButton::clicked, this, &QtTaskTesting::openSecondWindow);
 
+    connect(ui.pushButton_Plot, &QPushButton::clicked, this, &QtTaskTesting::drawPlot);
+}
 
+void QtTaskTesting::drawPlot() {
+    QLine line;
+    QPen pen(Qt::green, 3);
+    //QColor penColour = QColorDialog::getColor();
+
+
+    /*pen.setColor(penColour);
+    pen.setWidth(1);*/
+
+    //QPoint p1, p2;
+    //p1.setX(1.0);
+    //p1.setY(2.0);
+    //p2.setX(2.0);
+    //p2.setY(5.0);
+
+    line.setP1(QPoint(1, 1));
+    line.setP2(QPoint(50, 50));
+    //linePlot->setLine(QLine(line));
+    //linePlot->setLine(1.0, 2.0, 2.0, 5.0);
+    QGraphicsScene* scene = new QGraphicsScene;
+    scene->addLine(line,pen);
+    ui.graphicsView_Plot->setScene(scene);
+    ui.graphicsView_Plot->show();
 }
 
 void QtTaskTesting::updateColourMap(int hue) {
@@ -54,8 +79,9 @@ void QtTaskTesting::updateColourMap(int hue) {
     cv::Mat opencvColourmap;
 
     cv::merge(HLSchannels, hls_map);
-    cv::applyColorMap(hls_map, opencvColourmap, cv::COLORMAP_TURBO);
-    //cv::cvtColor(hls_map, BGRcolourmap, cv::COLOR_HLS2BGR);
+    cv::cvtColor(hls_map, BGRcolourmap, cv::COLOR_HLS2BGR);
+    cv::applyColorMap(BGRcolourmap, opencvColourmap, cv::COLORMAP_RAINBOW);
+    
 
     QGraphicsScene* scene = new QGraphicsScene;
     graphic = scene->addPixmap(ASM::cvMatToQPixmap(opencvColourmap));

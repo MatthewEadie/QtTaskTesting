@@ -180,14 +180,37 @@
    <widget class="QPushButton" name="pushButton_SecondWindow">
     <property name="geometry">
      <rect>
-      <x>240</x>
-      <y>90</y>
+      <x>430</x>
+      <y>10</y>
       <width>75</width>
       <height>23</height>
      </rect>
     </property>
     <property name="text">
      <string>Other Window</string>
+    </property>
+   </widget>
+   <widget class="QGraphicsView" name="graphicsView_Plot">
+    <property name="geometry">
+     <rect>
+      <x>130</x>
+      <y>260</y>
+      <width>371</width>
+      <height>91</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_Plot">
+    <property name="geometry">
+     <rect>
+      <x>260</x>
+      <y>230</y>
+      <width>75</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Plt</string>
     </property>
    </widget>
   </widget>

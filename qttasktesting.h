@@ -2,6 +2,7 @@
 
 #include <QtWidgets/QMainWindow>
 #include <QGraphicsPixmapItem>
+#include <qcolordialog.h>
 #include "asmOpenCV.h"
 
 #include "ui_qttasktesting.h"
@@ -31,9 +32,11 @@ private slots:
     void setSlideValue();
     void updateColourMap(int hue);
     void openSecondWindow();
+    void drawPlot();
 
 private:
     QGraphicsItem* graphic;
+    QGraphicsLineItem* linePlot;
 
     Ui::QtTaskTestingClass ui;
 
